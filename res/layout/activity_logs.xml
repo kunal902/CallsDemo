@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/aboutusbg" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/demolayout"
+        android:layout_alignParentTop="true" >
+
+        <com.iglulabs.assets.CustomFontTextView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:text_namespace="http://schemas.android.com/apk/res/com.iglulabs.callsdemo"
+            android:id="@+id/demobutton"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/blueappcolor"
+            android:gravity="center"
+            android:text="DemoApp"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            text_namespace:typeface="MyriadPro-Bold_Condensed.ttf" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/demolayout"
+        android:layout_marginBottom="50dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.iglulabs.assets.CustomFontTextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:text_namespace="http://schemas.android.com/apk/res/com.iglulabs.callsdemo"
+                android:id="@+id/calllogs"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"
+                 android:layout_marginRight="5dp"
+                android:textSize="20sp"
+                text_namespace:typeface="MyriadPro.otf" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.iglulabs.assets.CustomFontButton
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:text_namespace="http://schemas.android.com/apk/res/com.iglulabs.callsdemo"
+        android:id="@+id/savebutton"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_menu_selector"
+        android:text="SAVE"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        text_namespace:typeface="MyriadPro-Bold_Condensed.ttf" />
+
+</RelativeLayout>
