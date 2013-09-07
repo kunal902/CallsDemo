@@ -1,6 +1,7 @@
 package com.iglulabs.callsdemo;
 
 import java.io.File;
+import java.util.List;
 
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -20,6 +21,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -140,7 +142,17 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 				Uri contentUri = Uri.fromFile(path);
 				browserecordIntent.setDataAndType(contentUri, "file/*");
-				startActivityForResult(browserecordIntent, BROWSE_AUDIO);
+				final PackageManager packageManager = getPackageManager();
+				List<ResolveInfo> list = packageManager.queryIntentActivities(browserecordIntent,
+				                                PackageManager.GET_ACTIVITIES);
+				if (list.size() > 0) {
+					startActivityForResult(browserecordIntent, BROWSE_AUDIO);
+				} else {
+					Toast.makeText(
+							this,
+							"Please install file explorer app to perform this action",
+							Toast.LENGTH_LONG).show();
+				}
 			} else {
 				Toast.makeText(
 						this,
